@@ -1,4 +1,5 @@
-// 1. Typing Effect
+// --- 1. TYPING EFFECT ---
+// This handles the romantic opening lines
 var typed = new Typed('#typed-text', {
     strings: [
         "Every moment with you is a dream...",
@@ -8,11 +9,13 @@ var typed = new Typed('#typed-text', {
     typeSpeed: 50,
     backSpeed: 30,
     onComplete: (self) => {
+        // Reveals the question and buttons after typing is done
         document.getElementById('question').classList.remove('hidden');
     }
 });
 
-// 2. The Runaway "No" Button
+// --- 2. THE RUNAWAY "NO" BUTTON ---
+// Makes the 'No' button move randomly when hovered
 const noBtn = document.getElementById("noBtn");
 noBtn.addEventListener("mouseover", () => {
     const x = Math.random() * (window.innerWidth - 100);
@@ -22,16 +25,29 @@ noBtn.addEventListener("mouseover", () => {
     noBtn.style.top = y + "px";
 });
 
-// 3. The "Yes" Celebration
+// --- 3. THE "YES" CELEBRATION ---
+// Changes the card content and triggers confetti
 document.getElementById("yesBtn").addEventListener("click", () => {
-    // Change content
-    document.querySelector('.card').innerHTML = `
+    const textContent = document.querySelector('.text-content');
+    
+    // Update the inner HTML but KEEP the timer structure so it keeps working
+    textContent.innerHTML = `
         <h1>Yay! See you soon! ❤️</h1>
         <p>You've made me the happiest person ever.</p>
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueXh6eXpueXh6eXpueXh6eXpueXh6eXpueXh6eXpueXh6JnB2PTE/MDJ9IbxxvDUQM/giphy.gif" style="width:200px; border-radius:10px;">
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIyc3J6Z3R4bm9pZTVteGZ4eGZ4eGZ4eGZ4eGZ4eGZ4eGZ4ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/I7U8SSK0A9S0S5996P/giphy.gif" style="width:200px; border-radius:10px;">
+        
+        <div id="clock-container" class="timer-card">
+            <p class="timer-label">Time spent loving you:</p>
+            <div id="timer">
+                <span id="days">00</span>d : 
+                <span id="hours">00</span>h : 
+                <span id="minutes">00</span>m : 
+                <span id="seconds">00</span>s
+            </div>
+        </div>
     `;
 
-    // Rose Petal Confetti
+    // Confetti Animation
     var duration = 15 * 1000;
     var animationEnd = Date.now() + duration;
     var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
@@ -47,9 +63,11 @@ document.getElementById("yesBtn").addEventListener("click", () => {
         confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
     }, 250);
 });
-// --- 1. THE TIMER LOGIC ---
+
+// --- 4. THE TIMER LOGIC ---
+// Calculates time since your anniversary
 function updateTimer() {
-    // 👈 CHANGE THIS DATE to your anniversary (Year, Month[0-11], Day)
+    // Your anniversary: December 11, 2022
     const startDate = new Date("2022-12-11T00:00:00"); 
     const now = new Date();
     const diff = now - startDate;
@@ -59,32 +77,32 @@ function updateTimer() {
     const m = Math.floor((diff / (1000 * 60)) % 60);
     const s = Math.floor((diff / 1000) % 60);
 
-    document.getElementById("days").innerText = d;
-    document.getElementById("hours").innerText = h.toString().padStart(2, '0');
-    document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
-    document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
+    // Check if elements exist before updating (prevents errors during transitions)
+    if(document.getElementById("days")) {
+        document.getElementById("days").innerText = d;
+        document.getElementById("hours").innerText = h.toString().padStart(2, '0');
+        document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
+        document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
+    }
 }
 setInterval(updateTimer, 1000);
-updateTimer(); // Run immediately
+updateTimer(); 
 
-
-// --- 2. THE MOUSE TRAIL LOGIC ---
+// --- 5. THE MOUSE TRAIL LOGIC ---
+// Creates floating hearts that follow the cursor
 document.addEventListener('mousemove', (e) => {
     const heart = document.createElement('span');
-    heart.innerHTML = '❤️'; // You can change this to 💖 or ✨
+    heart.innerHTML = '❤️'; 
     heart.className = 'heart-trail';
     
-    // Position the heart at the cursor
     heart.style.left = e.clientX + 'px';
     heart.style.top = e.clientY + 'px';
     
-    // Randomize size slightly for a natural feel
     const size = Math.random() * 15 + 10; 
     heart.style.fontSize = size + 'px';
 
     document.body.appendChild(heart);
 
-    // Remove heart from DOM after animation finishes
     setTimeout(() => {
         heart.remove();
     }, 1000);
