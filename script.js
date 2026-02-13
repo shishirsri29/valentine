@@ -5,7 +5,7 @@ var typed = new Typed('#typed-text', {
         `Hey ${personName}...`, 
         "Every moment with you is a dream...",
         "I wanted to ask you something special.",
-        "Something from the heart.".
+        "Something from the heart.",
 		"..."
     ],
     typeSpeed: 50,
