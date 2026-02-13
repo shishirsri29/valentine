@@ -2,17 +2,22 @@
 // This handles the romantic opening lines
 var typed = new Typed('#typed-text', {
     strings: [
-		"Hey Pooja....",
+        `Hey ${personName}...`, 
         "Every moment with you is a dream...",
         "I wanted to ask you something special.",
-        "Something from the heart."
+        "Something from the heart.".
+		"..."
     ],
     typeSpeed: 50,
     backSpeed: 30,
-	showCursor: false,
+    showCursor: false,
     onComplete: (self) => {
-        // Reveals the question and buttons after typing is done
-        document.getElementById('question').classList.remove('hidden');
+        // Wait for 1000ms (1 second) before showing the question
+        setTimeout(() => {
+            const questionArea = document.getElementById('question');
+            questionArea.classList.remove('hidden');
+            questionArea.classList.add('fade-in'); // Adds the smooth fade effect
+        }, 1000); 
     }
 });
 
