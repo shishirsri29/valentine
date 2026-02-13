@@ -2,12 +2,14 @@
 // This handles the romantic opening lines
 var typed = new Typed('#typed-text', {
     strings: [
+		"Hey Pooja....",
         "Every moment with you is a dream...",
         "I wanted to ask you something special.",
         "Something from the heart."
     ],
     typeSpeed: 50,
     backSpeed: 30,
+	showCursor: false,
     onComplete: (self) => {
         // Reveals the question and buttons after typing is done
         document.getElementById('question').classList.remove('hidden');
