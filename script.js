@@ -32,7 +32,7 @@ document.getElementById("yesBtn").addEventListener("click", () => {
     
     // Update the inner HTML but KEEP the timer structure so it keeps working
     textContent.innerHTML = `
-        <h1>Yay! See you soon! ❤️</h1>
+        <h1>Yay! Thank you! Pooja!! ❤️</h1>
         <p>You've made me the happiest person ever.</p>
         <img src="catlove.gif" style="width:200px; border-radius:10px;">
         
