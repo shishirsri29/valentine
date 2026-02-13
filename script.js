@@ -47,3 +47,45 @@ document.getElementById("yesBtn").addEventListener("click", () => {
         confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
     }, 250);
 });
+// --- 1. THE TIMER LOGIC ---
+function updateTimer() {
+    // 👈 CHANGE THIS DATE to your anniversary (Year, Month[0-11], Day)
+    const startDate = new Date("2022-12-11T00:00:00"); 
+    const now = new Date();
+    const diff = now - startDate;
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / (1000 * 60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("days").innerText = d;
+    document.getElementById("hours").innerText = h.toString().padStart(2, '0');
+    document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
+    document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
+}
+setInterval(updateTimer, 1000);
+updateTimer(); // Run immediately
+
+
+// --- 2. THE MOUSE TRAIL LOGIC ---
+document.addEventListener('mousemove', (e) => {
+    const heart = document.createElement('span');
+    heart.innerHTML = '❤️'; // You can change this to 💖 or ✨
+    heart.className = 'heart-trail';
+    
+    // Position the heart at the cursor
+    heart.style.left = e.clientX + 'px';
+    heart.style.top = e.clientY + 'px';
+    
+    // Randomize size slightly for a natural feel
+    const size = Math.random() * 15 + 10; 
+    heart.style.fontSize = size + 'px';
+
+    document.body.appendChild(heart);
+
+    // Remove heart from DOM after animation finishes
+    setTimeout(() => {
+        heart.remove();
+    }, 1000);
+});
