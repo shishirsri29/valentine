@@ -2,7 +2,7 @@
 // This handles the romantic opening lines
 var typed = new Typed('#typed-text', {
     strings: [
-        `Hey ${personName}...`, 
+        `Hey Pooja...`, 
         "Every moment with you is a dream...",
         "I wanted to ask you something special.",
         "Something from the heart.",
