@@ -46,3 +46,48 @@ button {
 #noBtn { background: #f8f9fa; color: #6c757d; }
 
 .hidden { display: none; }
+/* Timer Styling */
+.timer-card {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.timer-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#timer {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff4d6d;
+    text-shadow: 0 0 10px rgba(255, 77, 109, 0.2);
+}
+
+/* Mouse Trail Styling */
+.heart-trail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    font-size: 20px;
+    animation: fadeUp 1s forwards;
+}
+
+@keyframes fadeUp {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -150%) scale(1.5);
+        opacity: 0;
+    }
+}
