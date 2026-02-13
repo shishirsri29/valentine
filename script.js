@@ -34,7 +34,7 @@ document.getElementById("yesBtn").addEventListener("click", () => {
     textContent.innerHTML = `
         <h1>Yay! See you soon! ❤️</h1>
         <p>You've made me the happiest person ever.</p>
-        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIyc3J6Z3R4bm9pZTVteGZ4eGZ4eGZ4eGZ4eGZ4eGZ4eGZ4ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/I7U8SSK0A9S0S5996P/giphy.gif" style="width:200px; border-radius:10px;">
+        <img src="catlove.gif" style="width:200px; border-radius:10px;">
         
         <div id="clock-container" class="timer-card">
             <p class="timer-label">Time spent loving you:</p>
