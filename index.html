@@ -8,21 +8,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="particles-js"></div> <div class="card">
-        <div class="image-container">
-            <img id="main-gif" src="valentine.gif" alt="Valentine Gift">
-        </div>
-        
-        <div class="text-content">
-            <h2 id="typed-text"></h2> <div id="question" class="hidden">
-                <h1>Will you be my Valentine?</h1>
-                <div class="btn-group">
-                    <button id="yesBtn">Yes, Forever</button>
-                    <button id="noBtn">No</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="particles-js"></div> 
+	<div class="card">
+		<div class="image-container">
+			<img id="main-gif" src="valentine.gif" alt="Hearts">
+		</div>
+    
+		<div class="text-content">
+			<h2 id="typed-text"></h2> 
+
+			<div id="question" class="hidden">
+				<h1>Will you be my Valentine?</h1>
+				<div class="btn-group">
+					<button id="yesBtn">Yes, Forever</button>
+					<button id="noBtn">No</button>
+				</div>
+
+				<div id="clock-container" class="timer-card">
+					<p class="timer-label">Time spent loving you:</p>
+					<div id="timer">
+						<span id="days">00</span>d : 
+						<span id="hours">00</span>h : 
+						<span id="minutes">00</span>m : 
+						<span id="seconds">00</span>s
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
